@@ -1,0 +1,16 @@
+- id: "tom"
+  name: "Tom"
+  description: "Engineer"
+  image: "./tom.png"
+  twitter: "tom"
+  github: "tommy"
+  website: "website.com"
+  linkedin: //www.linkedin.com/in/jane_doe
+- id: "jenny"
+  name: "Jenny"
+  description: "Engineer"
+  image: "./jenny.png"
+  twitter: "jenny"
+  github: //github.com/jane_doe
+  website: //profiles.wordpress.org/jane_doe
+  linkedin: //www.linkedin.com/in/jane_doe

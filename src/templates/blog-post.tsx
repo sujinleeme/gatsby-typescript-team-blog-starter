@@ -1,14 +1,26 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from "styled-components"
 
-import Bio from '../components/bio'
+import Avatar from '../components/avatar'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import { ChildImageSharp, Author } from '../types'
 
 interface Props {
   data: {
-    markdownRemark: any
+    markdownRemark: {
+      id?: string
+      excerpt: string
+      html: string
+      frontmatter: {
+        title: string
+        date: string
+        description: string
+        authors: Author[]
+      }
+    }
     site: {
       siteMetadata: {
         title: string
@@ -47,14 +59,22 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         >
           {post.frontmatter.date}
         </p>
+        <AvatarWrapper>
+          {post.frontmatter.authors && post.frontmatter.authors.map((author: Author) => (
+            <Avatar
+              key={author.name}
+              src={author.image.childImageSharp.fixed}
+              name={author.name}
+              twitter={author.twitter}
+            />
+          ))}
+        </AvatarWrapper>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
-
         <ul
           style={{
             display: `flex`,
@@ -74,7 +94,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.frontmatter.title}
               </Link>
             )}
           </li>
@@ -101,7 +121,25 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        authors {
+          description
+          name
+          twitter
+          image {
+            childImageSharp {
+              fixed(width: 50, height: 50) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
       }
     }
   }
+`
+
+const AvatarWrapper = styled.ul`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: ${rhythm(1)};
 `
