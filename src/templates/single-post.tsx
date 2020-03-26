@@ -1,39 +1,35 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import styled from "styled-components"
-
-import Avatar from '../components/avatar'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
-import { ChildImageSharp, Author } from '../types'
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { rhythm } from "../utils/typography";
 
 interface Props {
   data: {
     markdownRemark: {
-      id?: string
-      excerpt: string
-      html: string
+      id?: string;
+      excerpt: string;
+      html: string;
       frontmatter: {
-        title: string
-        date: string
-        description: string
-      }
-    }
+        title: string;
+        date: string;
+        description: string;
+      };
+    };
     site: {
       siteMetadata: {
-        title: string
-      }
-    }
-  }
+        title: string;
+      };
+    };
+  };
 }
 
 const BlogPostTemplate = ({ data }: Props) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
-    typeof window !== 'undefined' && (
+    typeof window !== "undefined" && (
       <Layout location={window.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
@@ -55,10 +51,10 @@ const BlogPostTemplate = ({ data }: Props) => {
         />
       </Layout>
     )
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query SinglePostBySlug($slug: String!) {
@@ -78,10 +74,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-
-const AvatarWrapper = styled.ul`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: ${rhythm(1)};
-`
+`;

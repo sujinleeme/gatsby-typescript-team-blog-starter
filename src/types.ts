@@ -1,26 +1,48 @@
-export type ChildImageSharp = {
-  childImageSharp: {
-    fluid?: {
-      aspectRatio: number
-      src: string
-      srcSet: string
-      sizes: string
-      base64: string
-      tracedSVG: string
-      srcWebp: string
-      srcSetWebp: string
-    }
-    fixed?: string
-  }
-}
+import { FixedObject } from "gatsby-image";
 
 export type Author = {
-  id: string
-  description: string
-  name: string
-  image: ChildImageSharp
-  twitter: string
-  github: string
-  website: string
-  linkedin: string
-}
+  id: string;
+  description: string;
+  name: string;
+  image: {
+    childImageSharp: {
+      fixed: FixedObject;
+    };
+  };
+  twitter: string;
+  github: string;
+  website: string;
+  linkedin: string;
+};
+
+export type MarkdownPagesProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: NodeProps[];
+    };
+    site: {
+      siteMetadata: {
+        title: string;
+      };
+    };
+  };
+};
+
+export type NodeProps = {
+  node: PageProps;
+};
+
+export type PageProps = {
+  id?: string;
+  excerpt: string;
+  html?: string;
+  frontmatter: {
+    title: string;
+    date: string;
+    description: string;
+    authors?: Author[];
+  };
+  fields: {
+    slug: string;
+  };
+};

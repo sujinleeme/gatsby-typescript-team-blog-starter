@@ -80,10 +80,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        shortName: `GatsbyJS`,
+        startUrl: `/`,
+        backgroundColor: `#ffffff`,
+        themeColor: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
@@ -94,5 +94,26 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    // gatsby-config.js
+    // {
+    //   resolve: `gatsby-plugin-ts`,
+    //   options: {
+    //     tsLoader: {
+    //       logLevel: `warn`,
+    //     },
+    //     forkTsCheckerPlugin: {
+    //       eslint: true,
+    //     },
+    //     fileName: `types/graphql-types.ts`,
+    //     codegen: true,
+    //     codegenDelay: 250,
+    //     typeCheck: false,
+    //     pluckConfig: {
+    //       // this is the default config
+    //       globalGqlIdentifierName: `graphql`,
+    //       modules: [{ name: `gatsby`, identifier: `graphql` }],
+    //     },
+    //   },
+    // },
   ],
-}
+};

@@ -1,17 +1,17 @@
-import React from "react"
-import Image from "gatsby-image"
-import styled from "styled-components"
+import React from "react";
+import Image, { FixedObject } from "gatsby-image";
+import styled from "styled-components";
 
-import { Col } from "./commons"
-import { rhythm } from "../utils/typography"
+import { Col } from "./commons";
+import { rhythm } from "../utils/typography";
 
 interface Props {
-  name: string,
-  src: string
-  twitter: string
+  name: string;
+  src: FixedObject;
+  twitter: string;
 }
 
-const Avatar = ({name, src, twitter}: Props) => 
+const Avatar = ({ name, src, twitter }: Props) => (
   <AvatarContainer>
     <Image
       fixed={src}
@@ -28,11 +28,16 @@ const Avatar = ({name, src, twitter}: Props) =>
     />
     <Col>
       <span>{name}</span>
-      <a href={`https://twitter.com/${twitter}`} target="_blank">{`@${twitter}`}</a>
+      <a
+        href={`https://twitter.com/${twitter}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >{`@${twitter}`}</a>
     </Col>
   </AvatarContainer>
+);
 
-export default Avatar
+export default Avatar;
 
 const AvatarContainer = styled.li`
   display: flex;
@@ -42,4 +47,4 @@ const AvatarContainer = styled.li`
   &:last-child {
     margin-right: 0;
   }
-`
+`;
