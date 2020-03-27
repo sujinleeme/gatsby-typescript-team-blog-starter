@@ -2,8 +2,9 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4c4f168b-79e3-400f-b99d-d8baffc48a3d/deploy-status)](https://app.netlify.com/sites/gatsby-typescript-starter-team-blog/deploys)
+
 ### Demo
-Lives on [gatsby-typescript-starter-team-blog.netlify.com](gatsby-typescript-starter-team-blog.netlify.com)
+Lives on [gatsby-typescript-starter-team-blog.netlify.com](https://gatsby-typescript-starter-team-blog.netlify.com/).
 
 🚧 Still Under construction. 🚧
 
