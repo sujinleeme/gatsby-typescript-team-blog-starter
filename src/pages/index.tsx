@@ -4,10 +4,11 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 
 import SEO from "../components/seo";
-import { rhythm } from "../utils/typography";
-import { MarkdownPagesProps } from "../types";
+import { Avatar, AvatarWrapper } from "../components/avatar";
+import { rhythm } from "../styles";
+import { Author, MarkdownPages } from "../types";
 
-const BlogIndex = ({ data }: MarkdownPagesProps) => {
+const BlogIndex = ({ data }: MarkdownPages) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMarkdownRemark.edges;
 
@@ -28,6 +29,16 @@ const BlogIndex = ({ data }: MarkdownPagesProps) => {
               </Link>
             </h3>
             <small>{node.frontmatter.date}</small>
+            <AvatarWrapper>
+              {node.frontmatter.authors &&
+                node.frontmatter.authors.map((author: Author) => (
+                  <Avatar
+                    key={author.name}
+                    src={author.image.childImageSharp.fixed}
+                    name={author.name}
+                  />
+                ))}
+            </AvatarWrapper>
             <p
               dangerouslySetInnerHTML={{
                 __html: node.frontmatter.description || node.excerpt,
@@ -63,6 +74,18 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            authors {
+              description
+              name
+              twitter
+              image {
+                childImageSharp {
+                  fixed(width: 50, height: 50) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
           }
         }
       }

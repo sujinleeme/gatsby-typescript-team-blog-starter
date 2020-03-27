@@ -1,16 +1,16 @@
 - id: "tom"
-  name: "Tom"
+  name: "Jigglypuff"
   description: "Engineer"
-  image: "./tom.png"
-  twitter: "tom"
-  github: "tommy"
+  image: "./jigglypuff.png"
+  twitter: "jigglypuff"
+  github: "jigglypuff"
   website: "website.com"
-  linkedin: //www.linkedin.com/in/jane_doe
-- id: "jenny"
-  name: "Jenny"
+  linkedin: //www.linkedin.com/in/jigglypuff
+- id: "pikachu"
+  name: "Pikachu"
   description: "Engineer"
-  image: "./jenny.png"
-  twitter: "jenny"
-  github: //github.com/jane_doe
-  website: //profiles.wordpress.org/jane_doe
-  linkedin: //www.linkedin.com/in/jane_doe
+  image: "./pikachu.png"
+  twitter: "pikachu"
+  github: //github.com/pikachu
+  website: //profiles.wordpress.org/pikachu
+  linkedin: //www.linkedin.com/in/pikachu

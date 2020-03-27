@@ -1,38 +1,49 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
 
-interface Props {
-  location: Location;
+import { rhythm, colors } from "../styles";
+
+export interface NavProps {
   title: string;
-  children?: React.ReactNode;
+  url: string;
 }
 
-const Navbar = () => {
-  const items = [
-    { title: "about", url: "/about" },
-    { title: "contact", url: "/contact" },
-  ];
-
+const Navbar = ({ items }: { items: NavProps[] }) => {
   return (
-    <nav>
+    <Nav>
       <ul>
-        {items.map((item, index) => (
-          <li key={`nav-${index}`}>
+        {items.map(({ url, title }) => (
+          <li key={`nav-${title}`}>
             <Link
               style={{
                 boxShadow: `none`,
                 textDecoration: `none`,
                 color: `inherit`,
               }}
-              to={item.url}
+              to={url}
             >
-              {item.title}
+              {title}
             </Link>
           </li>
         ))}
       </ul>
-    </nav>
+    </Nav>
   );
 };
 
 export default Navbar;
+
+const Nav = styled.nav`
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      text-transform: capitalize;
+      margin-right: ${rhythm(1)};
+      &:hover {
+        color: ${colors.default};
+      }
+    }
+  }
+`;

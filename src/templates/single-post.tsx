@@ -1,10 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { rhythm } from "../utils/typography";
 
-interface Props {
+import { rhythm } from "../styles";
+
+interface SinglePostProps {
   data: {
     markdownRemark: {
       id?: string;
@@ -24,7 +26,7 @@ interface Props {
   };
 }
 
-const BlogPostTemplate = ({ data }: Props) => {
+const SinglePostTemplate = ({ data }: SinglePostProps) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
 
@@ -38,7 +40,7 @@ const BlogPostTemplate = ({ data }: Props) => {
         <h1
           style={{
             marginTop: rhythm(1),
-            marginBottom: 0,
+            marginBottom: rhythm(1.5),
           }}
         >
           {post.frontmatter.title}
@@ -54,7 +56,7 @@ const BlogPostTemplate = ({ data }: Props) => {
   );
 };
 
-export default BlogPostTemplate;
+export default SinglePostTemplate;
 
 export const pageQuery = graphql`
   query SinglePostBySlug($slug: String!) {

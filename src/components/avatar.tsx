@@ -3,16 +3,16 @@ import Image, { FixedObject } from "gatsby-image";
 import styled from "styled-components";
 
 import { Col } from "./commons";
-import { rhythm } from "../utils/typography";
+import { rhythm } from "../styles";
 
-interface Props {
+interface AvatarProps {
   name: string;
   src: FixedObject;
-  twitter: string;
+  twitter?: string;
 }
 
-const Avatar = ({ name, src, twitter }: Props) => (
-  <AvatarContainer>
+export const Avatar = ({ name, src, twitter }: AvatarProps) => (
+  <Box>
     <Image
       fixed={src}
       alt={name}
@@ -28,18 +28,24 @@ const Avatar = ({ name, src, twitter }: Props) => (
     />
     <Col>
       <span>{name}</span>
-      <a
-        href={`https://twitter.com/${twitter}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >{`@${twitter}`}</a>
+      {twitter && (
+        <a
+          href={`https://twitter.com/${twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >{`@${twitter}`}</a>
+      )}
     </Col>
-  </AvatarContainer>
+  </Box>
 );
 
-export default Avatar;
+export const AvatarWrapper = styled.ul`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: ${rhythm(1)};
+`;
 
-const AvatarContainer = styled.li`
+const Box = styled.li`
   display: flex;
   align-items: center;
   margin-right: ${rhythm(1)};

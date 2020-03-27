@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Gatsby-Starter-TypeScript Team Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Team`,
+      summary: `Write down your team description`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A Gatsby starter with TypeScript blog for multiple authors`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `@sujinleeme`,
     },
   },
   plugins: [
@@ -94,26 +94,5 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    // gatsby-config.js
-    // {
-    //   resolve: `gatsby-plugin-ts`,
-    //   options: {
-    //     tsLoader: {
-    //       logLevel: `warn`,
-    //     },
-    //     forkTsCheckerPlugin: {
-    //       eslint: true,
-    //     },
-    //     fileName: `types/graphql-types.ts`,
-    //     codegen: true,
-    //     codegenDelay: 250,
-    //     typeCheck: false,
-    //     pluckConfig: {
-    //       // this is the default config
-    //       globalGqlIdentifierName: `graphql`,
-    //       modules: [{ name: `gatsby`, identifier: `graphql` }],
-    //     },
-    //   },
-    // },
   ],
 };

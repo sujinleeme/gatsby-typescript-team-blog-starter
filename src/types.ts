@@ -15,7 +15,7 @@ export type Author = {
   linkedin: string;
 };
 
-export type MarkdownPagesProps = {
+export type MarkdownPages = {
   data: {
     allMarkdownRemark: {
       edges: NodeProps[];
@@ -29,10 +29,10 @@ export type MarkdownPagesProps = {
 };
 
 export type NodeProps = {
-  node: PageProps;
+  node: Page;
 };
 
-export type PageProps = {
+export type Page = {
   id?: string;
   excerpt: string;
   html?: string;

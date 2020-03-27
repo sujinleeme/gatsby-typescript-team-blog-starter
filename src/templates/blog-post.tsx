@@ -1,16 +1,17 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import styled from "styled-components";
 
-import Avatar from "../components/avatar";
+import { Avatar, AvatarWrapper } from "../components/avatar";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { rhythm, scale } from "../utils/typography";
-import { Author, PageProps } from "../types";
+
+import { Author, Page } from "../types";
+
+import { rhythm, scale } from "../styles";
 
 interface BlogPostProps {
   data: {
-    markdownRemark: PageProps;
+    markdownRemark: Page;
     site: {
       siteMetadata: {
         title: string;
@@ -142,10 +143,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
-
-const AvatarWrapper = styled.ul`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: ${rhythm(1)};
 `;

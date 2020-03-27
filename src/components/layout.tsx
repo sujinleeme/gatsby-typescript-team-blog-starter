@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import { rhythm, scale } from "../utils/typography";
+import { rhythm, scale } from "../styles";
+import Navbar, { NavProps } from "./navbar";
 
 interface Props {
   location: Location;
@@ -10,6 +11,11 @@ interface Props {
 }
 
 declare const __PATH_PREFIX__: string;
+
+const routes: NavProps[] = [
+  { title: "about", url: "/about" },
+  { title: "contact", url: "/contact" },
+];
 
 const Layout = ({ location, title, children }: Props) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -67,7 +73,9 @@ const Layout = ({ location, title, children }: Props) => {
       }}
     >
       <header>{header}</header>
+      <Navbar items={routes} />
       <main>{children && children}</main>
+
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
