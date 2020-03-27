@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby-Starter-TypeScript Team Blog`,
+    title: `Gatsby-TypeScript Team Blog Starter`,
     author: {
-      name: `Team`,
+      name: `Pokemon Master`,
       summary: `Write down your team description`,
     },
-    description: `A Gatsby starter with TypeScript blog for multiple authors`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Make your awesome team blog`,
+    siteUrl: `https://gatsby-typescript-team-blog-starter.netlify.com/`,
     social: {
       twitter: `@sujinleeme`,
     },

@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-typescript-starter-team-blog",
-  "description": "A starter for a team blog powered by Gatsby, Markdown, TypeScript",
+  "name": "gatsby-typescript-team-blog-starter",
+  "description": "A starter for a team blog powered by Gatsby, TypeScript, Markdown",
   "version": "0.1.0",
   "author": "Sujin Lee <sujinle.me@gmail.com>",
   "bugs": {
-    "url": "https://github.com/sujinleeme/gatsby-typescript-starter-team-blog/issues"
+    "url": "https://github.com/sujinleeme/gatsby-typescript-team-blog-starter/issues"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
@@ -50,7 +50,7 @@
     "prettier": "^2.0.2",
     "typescript": "^3.8.3"
   },
-  "homepage": "https://github.com/sujinleeme/gatsby-typescript-starter-team-blog#readme",
+  "homepage": "https://github.com/sujinleeme/gatsby-typescript-team-blog-starter#readme",
   "keywords": [
     "gatsby",
     "blog",
@@ -60,7 +60,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sujinleeme/gatsby-typescript-starter-team-blog.git"
+    "url": "git+https://github.com/sujinleeme/gatsby-typescript-team-blog-starter.git"
   },
   "scripts": {
     "build": "gatsby build",
