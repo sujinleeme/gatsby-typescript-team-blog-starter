@@ -94,5 +94,11 @@ module.exports = {
         pathToConfigModule: `src/styles/typography`,
       },
     },
+    {
+      resolve: "gatsby-plugin-stylelint",
+      options: {
+        files: `src/**/*.{js,jsx,ts,tsx}`,
+      },
+    },
   ],
 };

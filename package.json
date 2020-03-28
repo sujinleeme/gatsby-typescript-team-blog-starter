@@ -46,8 +46,14 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "gatsby-plugin-stylelint": "^3.2.0",
     "husky": "^4.2.3",
     "prettier": "^2.0.2",
+    "stylelint": "^13.2.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "stylelint-webpack-plugin": "^1.2.3",
     "typescript": "^3.8.3"
   },
   "homepage": "https://github.com/sujinleeme/gatsby-typescript-team-blog-starter#readme",
@@ -56,7 +62,7 @@
     "blog",
     "typescript"
   ],
-  "license": "gplv3",
+  "license": "GPL-3.0-or-later",
   "main": "n/a",
   "repository": {
     "type": "git",
@@ -65,17 +71,19 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,json}'",
     "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx --fix",
-    "tsc": "tsc --skipLibCheck --noEmit --project ./tsconfig.json && :"
+    "lint:ts": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx --fix",
+    "lint:style": "stylelint 'src/**/*.{js,jsx,ts,tsx}'",
+    "tsc": "tsc --skipLibCheck --noEmit --project ./tsconfig.json && :",
+    "prebuild": "yarn lint:ts && yarn lint:style"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn tsc"
+      "pre-commit": "yarn lint:ts && yarn tsc && yarn lint:style"
     }
   }
 }
